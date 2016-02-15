@@ -1,3 +1,5 @@
+# The rest of the project is in vanilla js, but I wrote this coffescript a while back
+
 $ ->
 
     $line = $('#line-1')
