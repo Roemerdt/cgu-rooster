@@ -1,0 +1,67 @@
+section#form {
+	height: 60px;
+
+	form {
+		display: flex;
+		justify-content: center;
+
+		.lnummer {
+			position: relative;
+
+			input[type="text"] {
+				background-color: transparent;
+				border: none;
+				border-bottom: 1px solid #9e9e9e;
+				border-radius: 0;
+				outline: none;
+				height: 40px;
+				width: 300px;
+				font-size: 1rem;
+				margin: 0 0 15px 0;
+				padding: 0;
+				box-shadow: none;
+				box-sizing: content-box;
+				transition: all .2s cubic-bezier(.17,.67,.83,.67);
+				line-height: 3.5;
+
+				&:focus {
+					border-bottom: 1px solid #F44336;
+					box-shadow: 0 1px 0 0 #F44336;
+				}
+
+				@media (max-width: 740px) {
+					& {
+						width: calc(100vw - 40px);
+					}
+				}
+			}
+
+			label {
+				color: #9e9e9e;
+				position: absolute;
+				top: 0.8rem;
+				left: 0rem;
+				font-size: 15px;
+				font-weight: 300;
+				cursor: text;
+				transition: .2s ease-out;
+				box-sizing: border-box;
+
+				&.active {
+					color: #F44336;
+					font-size: 0.8rem;
+					transform: translateY(-100%);
+				}
+
+				&:after {
+					display: block;
+					content: "";
+					position: absolute;
+					top: 65px;
+					opacity: 0;
+					transition: .2s opacity ease-out, .2s color ease-out;
+				}
+			}
+		}
+	}
+}

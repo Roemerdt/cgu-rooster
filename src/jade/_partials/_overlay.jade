@@ -1,0 +1,17 @@
+section#overlay
+	.koppel_form
+		.main_koppel
+			h2 Koppelcode
+			form(method="POST", action="", autocomplete="off", id="koppel_form")
+				.lln_koppel
+					input(type="text", id="lln_koppel", maxlength="6")
+					label(for="lln_koppel", id="lln_koppel_l") Leerlingnummer
+				.koppel
+					input(type="text", id="koppel", maxlength="15")
+					label(for="koppel", id="koppel_l") Koppelcode
+				input(type="submit" style="margin-left: 99999px")
+
+		.info_koppel
+			i(class="material-icons back") arrow_back
+			p Het lijkt erop dat u nog nooit eerder deze site heeft gebruikt. Om deze site te laten werken moet u een keer (per jaar) uw koppelcode opgegeven. Wat is een koppelcode? Dit is een code die als beveilig werkt voor uw gegevens, u kunt deze code vinden door naar www.cgu.zportal.nl te gaan en in te loggen, in het onderste icoon van het linkermenu staat de 'koppelapp'. De code heeft deze vorm: 123 456 789 123.
+		i(class="material-icons help") help
