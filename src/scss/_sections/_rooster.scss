@@ -1,127 +1,19 @@
 section#rooster {
 
-	.flex-week {
-		display: flex;
-		justify-content: center;
-		flex-direction: row;
+	h1 {
+		display: none;
+	}
 
-		@media (max-width: 830px), (max-height: 630px) {
+	@media (max-width: 830px), (max-height: 630px) {
 
-			& {
-				flex-direction: column;
-			}
-		}
-
-		.maandag, .dinsdag, .woensdag, .donderdag, .vrijdag {
-			display: none;
-			flex-direction: column;
-
-			h1 {
-				display: none;
-			}
-
-			@media (max-width: 830px), (max-height: 630px) {
-
-				h1 {
-					display: block;
-				}
-			}
-
-			@media (max-width: 830px), (max-height: 630px) {
-
-				& {
-					align-items: center;
-					margin-right: 0;
-					margin-bottom: 40px;
-				}
-			}
-
-			[id*="uur"] {
-				padding: 6px;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				position: relative;
-				width: calc(100vw - 60px);
-				height: calc((100vh - 168px) / 9 - 5px + 5px / 9);
-				margin-bottom: 5px;
-				background: #fff;
-				box-shadow: 0 1px 2px rgba(0,0,0,.1);
-				color: inherit;
-				box-sizing: border-box;
-
-				.main {
-
-					h2 {
-						line-height: .8;
-					}
-
-					/*2.0 dpr */
-					@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
-						h2 {
-							font-size: 1.1em;
-						}
-						h3 {
-							font-size: 0.85em;
-						}
-					}
-				}
-
-				@media (max-width: 830px), (max-height: 630px) {
-
-					& {
-						width: calc(100vw - 40px);
-						height: 60px;
-					}
-				}
-
-				@media (max-height: 980px), (max-width: 830px) {
-
-					.additional {
-						position: absolute;
-						right: 3px;
-						bottom: 3px;
-						text-align: right;
-
-						/*2.0 dpr */
-						@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
-							h5 {
-								font-size: 0.6em;
-							}
-						}
-					}
-				}
-
-				span {
-					font-size: 14px;
-					top: 2px;
-					right: 3px;
-					position: absolute;
-
-					/*2.0 dpr */
-					@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
-						& {
-							font-size: 0.78em;
-						}
-					}
-				}
-
-				&:last-child {
-					margin-bottom: 0px;
-				}
-			}
-
-			&:last-child {
-				margin-right: 0px;
-			}
-		}
-
-		.active-day {
-			display: flex;
+		h1 {
+			display: block;
+			margin: 10px 0;
 		}
 	}
 
 	.week-view {
+		padding: 0 20px;
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
@@ -133,7 +25,9 @@ section#rooster {
 			}
 		}
 
-		.maandag, .dinsdag, .woensdag, .donderdag, .vrijdag {
+		#maandag, #dinsdag, #woensdag, #donderdag, #vrijdag {
+			width: calc(100vw / 5);
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			margin-right: 35px;
@@ -147,26 +41,29 @@ section#rooster {
 				h1 {
 					display: block;
 				}
-			}
-
-			@media (max-width: 830px), (max-height: 630px) {
 
 				& {
+
+					background: rgba(#bbb, 0.5);
+					height: calc(100vh - 148px);
+					width: 100%;
 					align-items: center;
+					justify-content: center;
 					margin-right: 0;
 					margin-bottom: 40px;
 				}
 			}
 
-			[id*="uur"] {
+			#uur {
 				padding: 6px;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
-				position: relative;
-				width: calc((100vw - 200px) / 5);
-				height: calc((100vh - 168px) / 9 - 5px + 5px / 9);
-				margin-bottom: 5px;
+				position: absolute;
+				// width: calc((100vw - 200px) / 5);
+				width: 100%;
+				// height: calc((100vh - 168px) / 9 - 5px + 5px / 9);
+				// margin-bottom: 5px;
 				background: #fff;
 				box-shadow: 0 1px 2px rgba(0,0,0,.1);
 				color: inherit;

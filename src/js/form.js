@@ -32,9 +32,9 @@ $('.koppel_form').click(function(event){
 	event.stopPropagation();
 });
 
-$('#week').click(function() {
-	$('.flex-week').addClass('week-view');
-});
+// $('#week').click(function() {
+// 	$('.flex-week').addClass('week-view');
+// });
 
 
 // Koppecode doesnt work, overlay click, not body

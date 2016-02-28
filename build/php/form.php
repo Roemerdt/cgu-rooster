@@ -1,48 +1,76 @@
 <?php
 
-$beginTime = strtotime('31-01-2016');
-$endTime = strtotime('08-02-2016');
+date_default_timezone_set('Europe/Amsterdam');
+
+$beginTime = strtotime('last sunday');
+$endTime = strtotime('next saturday');
 
 $auth_token = $_POST['auth'];
-
-$encoded = json_decode($resultAT[0]);
-$access_token = $encoded->access_token;
-// var_dump($access_token);
 
 $cmdSC = 'curl "https://cgu.zportal.nl/api/v2/appointments?user=~me&start='.$beginTime.'&end='.$endTime.'&access_token='. $auth_token .'"';
 exec($cmdSC, $resultSC);
 
-// var_dump($resultSC);
-echo "\n";
-echo "\n";
-echo "\n";
-$bla = json_decode($resultSC[0]);
-$res = $bla->response;
-$data = $res->data;
+$rooster = json_decode($resultSC[0], true);
+$roosterData = $rooster['response']['data'];
 
-$masterArray = [];
+$count = 0;
 
-foreach ($data as $key => $value) {
-	// echo implode('', $value->subjects);
-	// echo " ";
-	// echo implode('', $value->locations);
-	// echo " ";
-	// echo implode('', $value->teachers);
-	// echo " ";
-	// echo $value->startTimeSlot;
-	// echo "-";
-	// echo $value->endTimeSlot;
-	// echo " ";
-	// echo date('H:i d/m/Y', $value->start);
-	// echo "<br/>";
-	// var_dump($value);
-	// echo "<br/>";
+$roosterArray = array();
 
-	$tempArr = array($value->start, $value->startTimeSlot, $value->endTimeSlot, implode($value->subjects), implode($value->locations), implode($value->teachers), implode($value->groups));
-	$nice_arr = json_encode($tempArr);
-	array_push($masterArray, $nice_arr);
+foreach ($roosterData as $key => $value) {
+	$count += 1;
+	// echo $count . ': ';
+	// var_dump($value['start']);
+	$startTimeStamp = $value['start'];
+	// echo ", ";
+	// var_dump($value['end']);
+	$endTimeStamp = $value['end'];
+	// echo ", ";
+	// var_dump($value['subjects'][0]);
+	$subject = $value['subjects'][0];
+	// echo ", ";
+	// var_dump($value['teachers'][0]);
+	$teacher = $value['teachers'][0];
+	// echo ", ";
+	// var_dump($value['groups'][0]);
+	$group = $value['groups'][0];
+	// echo ", ";
+	// var_dump($value['locations'][0]);
+	$location = $value['locations'][0];
+	// echo ", ";
+	// var_dump($value['cancelled']);
+	$cancelled = $value['cancelled'];
+	// echo ", ";
+	// var_dump($value['moved']);
+	$moved = $value['moved'];
+	// echo ", ";
+	// var_dump(date('D d-m-y H:i:s', $value['start']));
+	// echo ", ";
+	// var_dump(date('D d-m-y H:i:s', $value['end']));
+	// echo ", ";
+	// var_dump($value['startTimeSlot']);
+	// echo ", ";
+	// var_dump($value['endTimeSlot']);
+	// echo "<br>";
+
+	$baseUnix = strtotime('today', $startTimeStamp);
+	$weekDay = date('N', $startTimeStamp);
+
+	$tempRoosterArray = array(
+		'start' => $startTimeStamp, 
+		'end' => $endTimeStamp,
+		'baseUnix' => $baseUnix,
+		'weekDay' => $weekDay,
+		'moved' => $moved, 
+		'cancelled' => $cancelled, 
+		'subject' => $subject, 
+		'location' => $location, 
+		'teacher' => $teacher, 
+		'group' => $group
+		);
+	array_push($roosterArray, $tempRoosterArray);
 }
 
-echo json_encode($masterArray);
+echo json_encode($roosterArray);
 
 ?>
