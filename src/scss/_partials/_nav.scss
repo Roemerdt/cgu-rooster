@@ -27,6 +27,14 @@ nav {
 				margin-left: 0;
 			}
 
+			&:first-child > a, &:last-child > a {
+				color: rgba(241, 241, 241, 0.4);
+
+				&:hover {
+					color: rgba(241, 241, 241, 0.75)
+				}
+			}
+
 			a {
 				color: rgb(241, 241, 241);
 				user-select: none;

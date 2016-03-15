@@ -67,10 +67,8 @@ function getRooster(auth_tok) {
 				for(var j = 0, o = compareRoosterData.length; j < o; j++) {
 					var tempArray = roosterData[i];
 					var tempCompArray = compareRoosterData[j];
-					if(tempArray['weekDay'] === tempCompArray['weekDay']) {
-						if(tempCompArray['start'] === tempArray['end']) {
-							notLastBlocks.push(j);
-						}
+					if(tempArray['weekDay'] === tempCompArray['weekDay'] && tempArray['end'] === tempCompArray['start']) {
+						notLastBlocks.push(j);
 					}
 				}
 
@@ -80,16 +78,9 @@ function getRooster(auth_tok) {
 				}
 			}
 
-			console.log(notLastBlocks);
-
 			for(var i = 0, n = roosterData.length; i < n; i++) {
-				if(!arrayContains(notLastBlocks, i)) {
-					console.log(i);
-					roosterData[i]['DomNode'].style.borderBottom = '0';
-				}
+				if(!arrayContains(notLastBlocks, i)) roosterData[i]['DomNode'].style.borderBottom = '0';
 			}
-
-			
 		},
 		error : function () {
 			console.log("error");
