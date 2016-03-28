@@ -55,20 +55,57 @@ section#rooster {
 				}
 			}
 
-			#uur {
-				padding: 6px;
+			#uur_block {
+				padding: 5px;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
 				position: absolute;
-				// width: calc((100vw - 200px) / 5);
 				width: 100%;
-				// height: calc((100vh - 168px) / 9 - 5px + 5px / 9);
-				// margin-bottom: 5px;
 				background: #fff;
 				box-shadow: 0 1px 2px rgba(0,0,0,.1);
 				color: inherit;
 				box-sizing: border-box;
+
+				#uur_data {
+					width: 100%;
+					height: 100%;
+					position: relative;
+
+					#uur_info {
+						width: 100%;
+						height: 100%;
+						position: relative;
+						
+						span {
+							position: absolute;
+						}
+
+						#uur_subject {
+							top: -2px;
+							left: 0;
+							font-size: 17px;
+						}
+
+						#uur_location {
+							font-size: 14px;
+							left: 0;
+							top: 19px;
+						}
+
+						#uur_additional {
+							top: -3px;
+							right: 0;
+						}
+					}
+
+					#uur_timestamp {
+						position: absolute;
+						right: 0;
+						bottom: -4px;
+						font-size: 11px;
+					}
+				}
 
 				.main {
 

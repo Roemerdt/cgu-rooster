@@ -49,17 +49,39 @@ function getRooster(auth_tok) {
 			for(var i = 0, n = roosterData.length; i < n; i++) {
 				var newEl = document.createElement('DIV');
 				roosterData[i]['DomNode'] = newEl;
-
-				newEl.id = 'uur';
-				newEl.innerHTML = roosterData[i]['subject'] + ', ';
-				newEl.innerHTML += moment(roosterData[i]['start'] * 1000).format('H:mm') + '-';
-				newEl.innerHTML += moment(roosterData[i]['end'] * 1000).format('H:mm');
+				newEl.id = 'uur_block';
 				document.getElementById(days[roosterData[i]['weekDay'] - 1]).appendChild(newEl);
 
 				newEl.style.height = roosterData[i]['calculatedHeight'] * (window.innerHeight - 148) + 'px';
 				newEl.style.top = roosterData[i]['calculatedMarginTop'] * (window.innerHeight - 148) + 'px';
 				newEl.style.zIndex = '2';
 				newEl.style.borderBottom = '1px solid #E0E0E0';
+
+				var uurDataEl = document.createElement('DIV');
+				uurDataEl.id = 'uur_data';
+
+				var lessonDataEl = document.createElement('DIV');
+				lessonDataEl.id = 'uur_info';
+				var subjectEl = document.createElement('SPAN');
+				subjectEl.id = 'uur_subject'
+				subjectEl.innerHTML = roosterData[i]['subject'];
+				var locationEl = document.createElement('SPAN');
+				locationEl.id = 'uur_location';
+				locationEl.innerHTML = roosterData[i]['location'];
+				var additionalEl = document.createElement('SPAN');
+				additionalEl.id = 'uur_additional';
+				additionalEl.innerHTML = roosterData[i]['teacher'] + ', ' + roosterData[i]['group'];
+				lessonDataEl.appendChild(subjectEl);
+				lessonDataEl.appendChild(locationEl);
+				lessonDataEl.appendChild(additionalEl);
+
+				var uurTimestampEl = document.createElement('DIV');
+				uurTimestampEl.id = 'uur_timestamp';
+				uurTimestampEl.innerHTML = moment(roosterData[i]['start'] * 1000).format('H:mm');
+
+				newEl.appendChild(uurDataEl);
+				uurDataEl.appendChild(lessonDataEl);
+				uurDataEl.appendChild(uurTimestampEl);
 
 				var compareRoosterData = JSON.parse(JSON.stringify(roosterData));
 				compareRoosterData.splice(i, 1);
