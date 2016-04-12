@@ -4681,12 +4681,12 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
-	"\/build\/js\/form.min.js": {
+	"\/build\/js\/helpers.min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/build\/js\/form.min.js",
-		"outputAbbreviatedPath": "\/build\/js\/min\/form.min-min.js",
+		"inputAbbreviatedPath": "\/build\/js\/helpers.min.js",
+		"outputAbbreviatedPath": "\/build\/js\/min\/helpers.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -4709,17 +4709,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/build\/js\/lln.min.js",
 		"outputAbbreviatedPath": "\/build\/js\/min\/lln.min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/build\/js\/nav.min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/build\/js\/nav.min.js",
-		"outputAbbreviatedPath": "\/build\/js\/min\/nav.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -4859,12 +4848,12 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
-	"\/src\/js\/form.js": {
+	"\/src\/js\/helpers.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/js\/form.js",
-		"outputAbbreviatedPath": "\/build\/js\/form.min.js",
+		"inputAbbreviatedPath": "\/src\/js\/helpers.js",
+		"outputAbbreviatedPath": "\/build\/js\/helpers.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 1,
@@ -4887,17 +4876,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/src\/js\/lln.js",
 		"outputAbbreviatedPath": "\/build\/js\/lln.min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 1,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 0
-		},
-	"\/src\/js\/nav.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/src\/js\/nav.js",
-		"outputAbbreviatedPath": "\/build\/js\/nav.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 1,

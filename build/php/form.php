@@ -2,8 +2,8 @@
 
 date_default_timezone_set('Europe/Amsterdam');
 
-$beginTime = strtotime('last sunday');
-$endTime = strtotime('next saturday');
+$beginTime = strtotime('11 april 2016');
+$endTime = strtotime('18 april 2016');
 
 $auth_token = $_POST['auth'];
 

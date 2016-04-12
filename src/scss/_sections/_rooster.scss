@@ -85,12 +85,26 @@ section#rooster {
 							top: -2px;
 							left: 0;
 							font-size: 17px;
+
+							@media (max-width: 830px), (max-height: 630px) {
+								
+								& {
+									top: -5px;
+								}
+							}
 						}
 
 						#uur_location {
 							font-size: 14px;
 							left: 0;
 							top: 19px;
+
+							@media (max-width: 830px), (max-height: 630px) {
+								
+								& {
+									top: 16px;
+								}
+							}
 						}
 
 						#uur_additional {

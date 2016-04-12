@@ -54,3 +54,8 @@ $('body').click(function() {
 $('label').click(function(event){
 	event.stopPropagation();
 });
+
+$('#uur_data').click(function(event) {
+	console.log('123');
+	console.log(event.target);
+});
