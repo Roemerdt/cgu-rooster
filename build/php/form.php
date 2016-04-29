@@ -1,11 +1,13 @@
 <?php
 
 date_default_timezone_set('Europe/Amsterdam');
-
-$beginTime = strtotime('11 april 2016');
-$endTime = strtotime('18 april 2016');
+$date = new DateTime();
 
 $auth_token = $_POST['auth'];
+$week_to_get = $_POST['week'];
+
+$beginTime = strtotime( date('Y') . 'W' . $week_to_get);
+$endTime = strtotime( date('Y') . 'W' . $week_to_get . ' +6 days');
 
 $cmdSC = 'curl "https://cgu.zportal.nl/api/v2/appointments?user=~me&start='.$beginTime.'&end='.$endTime.'&access_token='. $auth_token .'"';
 exec($cmdSC, $resultSC);

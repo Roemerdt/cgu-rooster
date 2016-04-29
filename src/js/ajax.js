@@ -1,18 +1,27 @@
+Date.prototype.getWeek = function() {
+    var d = new Date(+this);
+    d.setHours(0,0,0);
+    d.setDate(d.getDate()+4-(d.getDay()||7));
+    return Math.ceil((((d-new Date(d.getFullYear(),0,1))/8.64e7)+1)/7);
+}
+
 function arrayContains(a, b) {
 	return !!~a.indexOf(b);
 }
 
-function getRooster(auth_tok) {
+function getRooster(auth_tok, week) {
 
 	console.log('will get rooster for ', auth_tok);
 
 	var tmline = [];
 	var finalLine = [];
 
+	var week = week || new Date().getWeek();
+
 	$.ajax({
 		url : '../build/php/form.php',
 		type : 'POST',
-		data: {'auth': auth_tok},
+		data: {'auth': auth_tok, 'week': week},
 		dataType : 'json',
 		success : function (result) {
 			console.log(result);
@@ -79,7 +88,6 @@ function getRooster(auth_tok) {
 				uurTimestampEl.id = 'uur_timestamp';
 				uurTimestampEl.innerHTML = moment(roosterData[i]['start'] * 1000).format('H:mm');
 
-				uurDataEl.setAttribute('data-rooster', JSON.stringify(roosterData[i]));
 
 				newEl.appendChild(uurDataEl);
 				uurDataEl.appendChild(lessonDataEl);
@@ -100,7 +108,12 @@ function getRooster(auth_tok) {
 					newEl.style.backgroundColor = 'rgba(244, 67, 54, 0.3)';
 					newEl.style.zIndex = '1';
 				}
+
+
+				uurDataEl.setAttribute('data-rooster', JSON.stringify(roosterData[i]));
 			}
+
+			console.log(notLastBlocks);
 
 			for(var i = 0, n = roosterData.length; i < n; i++) {
 				if(!arrayContains(notLastBlocks, i)) roosterData[i]['DomNode'].style.borderBottom = '0';
@@ -113,11 +126,7 @@ function getRooster(auth_tok) {
 }
 
 
-Date.prototype.getWeek = function() {
-    var onejan = new Date(this.getFullYear(), 0, 1);
-    var millisecsInDay = 86400000;
-    return Math.ceil((((this - onejan) /millisecsInDay) + onejan.getDay()+1)/7);
-};
+console.log(new Date().getWeek());
 
 var navContainer = $('#nav-list');
 var firstNav = $('.first-nav');
