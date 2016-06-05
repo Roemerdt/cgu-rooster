@@ -1,4 +1,4 @@
 # cgu-rooster
 
 A third party schedule for CGU, based on the Zermelo API
-(Not online right now)
+192.81.222.121
