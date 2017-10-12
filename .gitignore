@@ -1,11 +1,5 @@
 # Created by https://www.gitignore.io/api/osx
 
-### Bower ###
-bower_components
-.bower-cache
-.bower-registry
-.bower-tmp
-
 ### OSX ###
 .DS_Store
 .AppleDouble
